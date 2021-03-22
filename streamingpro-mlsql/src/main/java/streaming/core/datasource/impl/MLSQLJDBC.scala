@@ -283,6 +283,7 @@ class MLSQLJDBC(override val uid: String) extends MLSQLSource with MLSQLSink wit
   final val partitionColumn: Param[String] = new Param[String](this, "partitionColumn", "These options must all be specified if any of them is specified. In addition, numPartitions must be specified. They describe how to partition the table when reading in parallel from multiple workers. partitionColumn must be a numeric, date, or timestamp column from the table in question. Notice that lowerBound and upperBound are just used to decide the partition stride, not for filtering the rows in table. So all rows in the table will be partitioned and returned. This option applies only to reading.")
   final val lowerBound: Param[String] = new Param[String](this, "lowerBound", "See partitionColumn")
   final val upperBound: Param[String] = new Param[String](this, "upperBound", "See partitionColumn")
+  final val numPartitions: Param[String] = new Param[String](this, "numPartitions", "See partitionColumn")
   final val enableCacheToHDFS: BooleanParam = new BooleanParam(this, "enableCacheToHDFS", "enabled by default in MySQL;The target path is ${HOME}/tmp/_jdbc_cache_")
   final val waitCacheLockTime: LongParam = new LongParam(this, "waitCacheLockTime", "default 30m;unit seconds")
   final val cacheToHDFSExpireTime: LongParam = new LongParam(this, "cacheToHDFSExpireTime", "default 6h; unit seconds")
